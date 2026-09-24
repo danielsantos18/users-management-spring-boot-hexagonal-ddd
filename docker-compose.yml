@@ -1,0 +1,20 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: users-management:local
+    container_name: users-management-app
+    restart: unless-stopped
+    environment:
+      # --- App ---
+      PORT: 8080
+      # --- SMTP (opcional: solo se usa al enviar correo) ---
+      SMTP_HOST: ${SMTP_HOST:-smtp.gmail.com}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USERNAME: ${SMTP_USERNAME:-danielsntos06@gmail.com}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-nlhy iunp ituk ktoh}
+      SMTP_FROM_ADDRESS: ${SMTP_FROM_ADDRESS:-danielsntos06@gmail.com}
+      SMTP_FROM_NAME: ${SMTP_FROM_NAME:-gestion de usuarios}
+    ports:
+      - "${APP_PORT_HOST:-8080}:8080"

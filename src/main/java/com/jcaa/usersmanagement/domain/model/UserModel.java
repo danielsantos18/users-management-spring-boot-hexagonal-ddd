@@ -24,7 +24,7 @@ public class UserModel {
       final UserEmail email,
       final UserPassword password,
       final UserRole role) {
-    return new UserModel(id, name, email, password, role, UserStatus.PENDING);
+    return new UserModel(id, name, email, password, role, UserStatus.ACTIVE);
   }
 
   public UserModel activate() {
